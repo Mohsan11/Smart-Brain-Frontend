@@ -2,3 +2,7 @@ body{
     background: linear-gradient(to left, #44aaf2,#ee6ef5);
     font-family: 'Courier New', Courier, monospace;
 }
+.center{
+    display: flex;
+    justify-content: center;
+  }

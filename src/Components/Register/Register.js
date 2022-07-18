@@ -7,47 +7,47 @@ const Register = () => {
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
             <legend className="f4 fw6 ph0 mh0">Sign Un</legend>
             <div className="mt3">
-              <label className="db fw6 lh-copy f6" for="email-address">
+              <label className="db fw6 lh-copy f6" email="email-address">
                 First Name
               </label>
               <input
                 className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                 type="email"
                 name="email-address"
-                id="email-address"
+                id="email-address3"
               />
             </div>
             <div className="mt3">
-              <label className="db fw6 lh-copy f6" for="email-address">
+              <label className="db fw6 lh-copy f6" email="email-address">
                 Last Name
               </label>
               <input
                 className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                 type="email"
                 name="email-address"
-                id="email-address"
+                id="email-address2"
               />
             </div>
             <div className="mt3">
-              <label className="db fw6 lh-copy f6" for="email-address">
+              <label className="db fw6 lh-copy f6" email="email-address">
                 Email
               </label>
               <input
                 className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                 type="email"
                 name="email-address"
-                id="email-address"
+                id="email-address1"
               />
             </div>
             <div className="mv3">
-              <label className="db fw6 lh-copy f6" for="password">
+              <label className="db fw6 lh-copy f6" email="password">
                 Password
               </label>
               <input
                 className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                 type="password"
                 name="password"
-                id="password"
+                id="password1"
               />
             </div>
           </fieldset>
