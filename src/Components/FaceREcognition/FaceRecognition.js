@@ -1,11 +1,11 @@
 import React from "react";
-const FaceRecognition = () => {
+const FaceRecognition = ({ imageUrl }) => {
   return (
     <div className="center">
       <div className=" pointer pa2 br3">
         <img
           className="center w-70 pa2"
-          src=""
+          src={imageUrl}
           alt="URL_image"
           style={{ width: "500px", height: "auto" }}
         />
