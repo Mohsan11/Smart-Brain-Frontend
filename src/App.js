@@ -54,7 +54,7 @@ class App extends Component {
     return (
       <div>
         <Navigator
-          IsSignedIn={this.IsSignedIn}
+          IsSignedIn={this.state.IsSignedIn}
           onRouteChange={this.onRouteChange}
         />
         {this.state.route === "home" ? (
