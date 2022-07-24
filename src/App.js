@@ -21,6 +21,13 @@ class App extends Component {
       route: "signin",
     };
   }
+  componentDidMount() {
+    fetch("http://localhost:3001")
+      .then((response) => response.json())
+      //.then((data) => console.log(data));
+      //similar to this bcz it return data anyway
+      .then(console.log);
+  }
   oninputchange = (event) => {
     this.setState({ input: event.target.value });
   };
