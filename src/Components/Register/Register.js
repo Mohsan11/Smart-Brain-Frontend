@@ -49,7 +49,7 @@ class Register extends React.Component {
                   Name
                 </label>
                 <input
-                  onChange={this.onEmailChange}
+                  onChange={this.onNameChange}
                   className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                   type="email"
                   name="email-address"
