@@ -7,6 +7,7 @@ import Register from "./Components/Register/Register";
 import FaceRecognition from "./Components/FaceREcognition/FaceRecognition";
 import { Component } from "react";
 import Navigator from "./Components/Navigator/Navigator";
+import Rank from "./Components/Rank/Rank";
 
 // const app = new Clarifai.App({
 //   apiKey: "0440a2cdf6ae4c38b4dd8a626b451ffe",
@@ -28,14 +29,13 @@ class App extends Component {
       },
     };
   }
-
-  componentDidMount() {
-    fetch("http://localhost:3001")
-      .then((response) => response.json())
-      //.then((data) => console.log(data));
-      //similar to this bcz it return data anyway
-      .then(console.log);
-  }
+  // componentDidMount() {
+  //   fetch("http://localhost:3001")
+  //     .then((response) => response.json())
+  //     //.then((data) => console.log(data));
+  //     //similar to this bcz it return data anyway
+  //     .then(console.log);
+  // }
   loadUser = (data) => {
     this.setState({
       user: {
@@ -86,6 +86,10 @@ class App extends Component {
         {this.state.route === "home" ? (
           <div>
             <Logo />
+            <Rank
+              name={this.state.user.name}
+              entries={this.state.user.entries}
+            />
             <ImageLinkForm
               oninputchange={this.oninputchange}
               onsubmitbutton={this.onsubmitbutton}
@@ -93,7 +97,7 @@ class App extends Component {
             <FaceRecognition imageUrl={this.state.imageUrl} />
           </div>
         ) : this.state.route === "signin" ? (
-          <Signin onRouteChange={this.onRouteChange} />
+          <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
         ) : (
           <Register
             loadUser={this.loadUser}
