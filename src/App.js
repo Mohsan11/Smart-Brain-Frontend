@@ -19,8 +19,16 @@ class App extends Component {
       imageUrl: "",
       IsSignedIn: false,
       route: "signin",
+      user: {
+        id: "",
+        name: "",
+        email: "",
+        entries: 0,
+        joined: "",
+      },
     };
   }
+
   componentDidMount() {
     fetch("http://localhost:3001")
       .then((response) => response.json())
@@ -28,6 +36,17 @@ class App extends Component {
       //similar to this bcz it return data anyway
       .then(console.log);
   }
+  loadUser = (data) => {
+    this.setState({
+      user: {
+        id: data.id,
+        name: data.name,
+        email: data.email,
+        entries: data.entries,
+        joined: data.joined,
+      },
+    });
+  };
   oninputchange = (event) => {
     this.setState({ input: event.target.value });
   };
@@ -76,7 +95,10 @@ class App extends Component {
         ) : this.state.route === "signin" ? (
           <Signin onRouteChange={this.onRouteChange} />
         ) : (
-          <Register onRouteChange={this.onRouteChange} />
+          <Register
+            loadUser={this.loadUser}
+            onRouteChange={this.onRouteChange}
+          />
         )}
       </div>
     );
