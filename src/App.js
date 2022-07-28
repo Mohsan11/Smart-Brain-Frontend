@@ -29,13 +29,6 @@ class App extends Component {
       },
     };
   }
-  // componentDidMount() {
-  //   fetch("http://localhost:3001")
-  //     .then((response) => response.json())
-  //     //.then((data) => console.log(data));
-  //     //similar to this bcz it return data anyway
-  //     .then(console.log);
-  // }
   loadUser = (data) => {
     this.setState({
       user: {
@@ -47,10 +40,29 @@ class App extends Component {
       },
     });
   };
+  // componentDidMount() {
+  //   fetch("http://localhost:3001")
+  //     .then((response) => response.json())
+  //     //.then((data) => console.log(data));
+  //     //similar to this bcz it return data anyway
+  //     .then(console.log);
+  // }
   oninputchange = (event) => {
     this.setState({ input: event.target.value });
   };
   onsubmitbutton = (event) => {
+    this.setState({ imageUrl: this.state.input });
+    fetch("http://localhost:3001/image", {
+      method: "put",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({
+        id: this.state.user.id,
+      }),
+    })
+      .then((response) => response.json())
+      .then((count) => {
+        this.setState(Object.assign(this.state.user, { entries: count }));
+      });
     console.log("click");
 
     // app.models
@@ -97,7 +109,7 @@ class App extends Component {
             <FaceRecognition imageUrl={this.state.imageUrl} />
           </div>
         ) : this.state.route === "signin" ? (
-          <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+          <Signin onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
         ) : (
           <Register
             loadUser={this.loadUser}
