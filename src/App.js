@@ -12,22 +12,23 @@ import Rank from "./Components/Rank/Rank";
 // const app = new Clarifai.App({
 //   apiKey: "0440a2cdf6ae4c38b4dd8a626b451ffe",
 // });
+const initialstate = {
+  input: "",
+  imageUrl: "",
+  IsSignedIn: false,
+  route: "signin",
+  user: {
+    id: "",
+    name: "",
+    email: "",
+    entries: 0,
+    joined: "",
+  },
+};
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      input: "",
-      imageUrl: "",
-      IsSignedIn: false,
-      route: "signin",
-      user: {
-        id: "",
-        name: "",
-        email: "",
-        entries: 0,
-        joined: "",
-      },
-    };
+    this.state = initialstate;
   }
   loadUser = (data) => {
     this.setState({
@@ -62,8 +63,8 @@ class App extends Component {
       .then((response) => response.json())
       .then((count) => {
         this.setState(Object.assign(this.state.user, { entries: count }));
-      });
-    console.log("click");
+      })
+      .catch(console.log);
 
     // app.models
     //   .predict(
@@ -81,7 +82,7 @@ class App extends Component {
   };
   onRouteChange = (route) => {
     if (route === "signout") {
-      this.setState({ IsSignedIn: false });
+      this.setState(initialstate);
     } else if (route === "home") {
       this.setState({ IsSignedIn: true });
     }
