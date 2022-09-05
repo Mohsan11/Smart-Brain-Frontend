@@ -42,10 +42,10 @@ class App extends Component {
     });
   };
   // componentDidMount() {
-  //   fetch("http://localhost:3001")
+  //   fetch("https://sheltered-tundra-43592.herokuapp.com/")
   //     .then((response) => response.json())
-  //     //.then((data) => console.log(data));
-  //     //similar to this bcz it return data anyway
+  //.then((data) => console.log(data));
+  //similar to this bcz it return data anyway
   //     .then(console.log);
   // }
   oninputchange = (event) => {
@@ -53,7 +53,7 @@ class App extends Component {
   };
   onsubmitbutton = (event) => {
     this.setState({ imageUrl: this.state.input });
-    fetch("http://localhost:3001/image", {
+    fetch("https://sheltered-tundra-43592.herokuapp.com/image", {
       method: "put",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
